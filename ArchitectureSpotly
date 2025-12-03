@@ -1,108 +1,141 @@
-Spotly 
-technical architecture (Final Submission)
-Purpose, Function & Audience
-Spotly is a mood-based city discovery app.
-Users explore nearby places and events based on “vibes” (chill, artsy, lively, cozy, etc.) instead of traditional categories. The app lets users:
-Browse a map of recommended spots
-Add their own spots with photos, descriptions and tags
-Find similar people through shared vibes (friends/matching feature)
-Audience:
+# Spotly  
+## Technical Architecture (Final Submission)
+
+---
+
+## 1. Purpose, Function & Audience
+
+Spotly is a mood-based city discovery app.  
+Users explore nearby places and events based on “vibes” (chill, artsy, lively, cozy, etc.) instead of traditional categories.
+
+The app lets users:
+
+- Browse a map of recommended spots  
+- Add their own spots with photos, descriptions and tags  
+- Find similar people through shared vibes (friends/matching feature)
+
+**Audience:**  
 Students, young adults, creatives and anyone who enjoys exploring cities, discovering hidden gems, and sharing local recommendations.
 
-Technology Stack & Application Architecture
-Frontend
-HTML + CSS (custom gradient styling, modern UI components)
-EJS templates for rendering dynamic views
-Vanilla JavaScript for basic UI interactions (forms, toggles)
-Backend
-Node.js
-Express.js for routing and controller structure
-EJS as templating engine
-express-session for handling login state
-Database
-MongoDB
-Mongoose for data models and validation
-Data Models (Planned + In Progress)
-User
-username, email, passwordHash
-preferred vibes (used for matching feature)
-Spot
-title, description, locationName
-vibe tags
-createdBy (ref User)
-image placeholder (real uploads coming later)
-Architecture Summary
-User → Browser → Express routes
-Route handlers fetch data via Mongoose
-Server renders EJS templates with dynamic content
-Some pages (e.g., Explore) integrate a future map API for coordinates
-Static assets (CSS, gradient backgrounds) served via /public
+---
 
+## 2. Technology Stack & Application Architecture
 
-UI/UX Design Considerations
-Spotly focuses heavily on aesthetic mood and simplicity. UX decisions include:
-Visual identity
-Gradient colour palettes representing “vibes” and energy
-Smooth rounded cards for spots and people
-Consistent spacing and clean typography
-Navigation
-Fixed top navigation (Explore, Add Spot, Friends, Profile)
-Clear CTA buttons such as Explore the map and Find Matches
-User flow
-Landing page introduces the concept and vibe filters
-Explore page combines:
-Search bar
-Map container (to be powered by Leaflet later)
-Spot list on the right
-Add Spot page uses a clean, minimal form with optional vibe tags
-Friends page displays suggested matches based on shared vibes
-Responsiveness
-Layouts designed to reflow for mobile (stacking content vertically)
-Cards shrink and wrap depending on screen width
-Screens (included in repo)
-Landing / Hero page
-Explore + Map view
-Add Spot form
-Friends matching page
+### **Frontend**
+- HTML + CSS (custom gradient styling, modern UI components)
+- EJS templates for rendering dynamic views
+- Vanilla JavaScript for basic UI interactions (forms, toggles)
 
-Major Features (MVP & Planned)
-MVP
-Explore page showing example spot cards
-Add Spot form (server receives data)
-Basic database connection for storing and retrieving spots
-Static mock data for user suggestions
-Simple login system (in progress)
-Clean responsive styling and navigation
-Stretch / Planned Features
-Full map integration using Leaflet
-Geocoding API to convert user text → coordinates
-Image uploads via Multer
-Friends/matching algorithm using shared vibe scoring
-Personalised explore feed
-Ability to bookmark or favourite spots
+### **Backend**
+- Node.js  
+- Express.js for routing and controller structure  
+- EJS as templating engine  
+- express-session for handling login state  
 
-Anticipated Challenges
-Integrating maps + markers smoothly with EJS views
-Handling image uploads and deciding on storage (local vs cloud)
-Designing a lightweight but meaningful “vibe matching” system
-Keeping UI performance smooth while rendering map + lists
-Validating user input on both client and server
-Maintaining clean route/controller structure as features grow
-6. Experiments Undertaken
-So far, experiments include:
-Testing Leaflet map rendering inside an EJS template
-Playing with CSS gradients and atmospheric visual styles
-Experimenting with tag systems (vibe chips, colour-coded)
-Trying out Express route structures for modularity
-Testing mock friend-matching data to shape future algorithm
-Exploring options for geocoding APIs (OpenCage, Mapbox, Google)
+### **Database**
+- MongoDB  
+- Mongoose for data models and validation  
 
-Learning Points
-Through building Spotly, I’ve learned:
-How to structure a Node + Express + MongoDB project from scratch
-How to create dynamic pages with EJS and partial templates
-How UI design affects user flow and navigation choices
-Better understanding of RESTful route design
-How to plan features iteratively (MVP → stretch)
-How to document architecture clearly and professionally
-Improved Git workflow and repo organisation
+### **Data Models (Planned + In Progress)**
+
+**User**
+- username  
+- email  
+- passwordHash  
+- preferred vibes (used for matching feature)
+
+**Spot**
+- title  
+- description  
+- locationName  
+- vibe tags  
+- createdBy (ref User)  
+- image placeholder (real uploads coming later)
+
+### **Architecture Summary**
+- User → Browser → Express routes  
+- Route handlers fetch data via Mongoose  
+- Server renders EJS templates with dynamic content  
+- Some pages (e.g., Explore) integrate a future map API for coordinates  
+- Static assets (CSS, gradient backgrounds) served via `/public`
+
+---
+
+## 3. UI/UX Design Considerations
+
+Spotly focuses heavily on aesthetic mood and simplicity.
+
+### **Visual identity**
+- Gradient colour palettes representing “vibes” and energy  
+- Smooth rounded cards for spots and people  
+- Clean typography and consistent spacing  
+
+### **Navigation**
+- Top navigation bar (Explore, Add Spot, Friends, Profile)  
+- Clear CTA buttons such as **Explore the map** and **Find Matches**
+
+### **User flow**
+- Landing page introduces the app + vibe categories  
+- Explore page includes:  
+  - Search bar  
+  - Map container  
+  - Spot list on the right  
+- Add Spot page includes a clean form with vibe tag selection  
+- Friends page shows suggested matches based on shared vibes  
+
+### **Responsiveness**
+- Mobile-first layout  
+- Cards stack or adjust width for smaller screens  
+
+---
+
+## 4. Major Features (MVP & Future)
+
+### **MVP**
+- Explore page with example spot cards  
+- Add Spot form  
+- Basic MongoDB storage for spots  
+- Static friend suggestions  
+- Basic login/logout (in progress)  
+- Clean responsive UI  
+
+### **Future / Stretch Features**
+- Leaflet map integration  
+- Geocoding API for converting location text → coordinates  
+- Image uploads (Multer)  
+- Friends/matching algorithm  
+- Personalised explore feed  
+- Bookmarks / favourites  
+
+---
+
+## 5. Anticipated Challenges
+
+- Map integration and rendering markers  
+- Handling photo uploads and storage  
+- Designing vibe-matching logic  
+- Ensuring fast loading with map + lists combined  
+- Client + server validation  
+- Maintaining clean route/controller structure  
+
+---
+
+## 6. Experiments Undertaken
+
+- Tested Leaflet in EJS layout  
+- Experimented with gradient styling  
+- Vibe-tag system design  
+- Tried different Express route structures  
+- Mocking friend-matching logic  
+- Researching geocoding API providers  
+
+---
+
+## 7. Learning Points
+
+- Structuring Node + Express + MongoDB apps  
+- Using EJS templates and partials  
+- Understanding how UI design affects usability  
+- RESTful routing patterns  
+- Feature planning (MVP → stretch)  
+- GitHub repo organisation and documentation  
