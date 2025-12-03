@@ -1,13 +1,14 @@
 Spotly
-technical architecture (Final Submission)
-Purpose, Function & Audience
-Spotly is a mood-based city discovery app.
-Users explore nearby places and events based on “vibes” (chill, artsy, lively, cozy, etc.) instead of traditional categories. The app lets users:
+Technical architecture (Final Submission)
+
+Purpose, function & audience
+Spotly is a mood based city discovery app
+Users explore nearby places and events based on “vibes” (chill, artsy, lively, cozy, etc.) instead of traditional categories. The app lets users
 Browse a map of recommended spots
 Add their own spots with photos, descriptions and tags
 Find similar people through shared vibes (friends/matching feature)
 Audience:
-Students, young adults, creatives and anyone who enjoys exploring cities, discovering hidden gems, and sharing local recommendations.
+Students, young adults, creatives and anyone who enjoys exploring cities, discovering hidden gems, and sharing local recommendations
 
 Technology Stack & Application Architecture
 Frontend
@@ -18,7 +19,7 @@ Backend
 Node.js
 Express.js for routing and controller structure
 EJS as templating engine
-express-session for handling login state
+express session for handling login state
 Database
 MongoDB
 Mongoose for data models and validation
